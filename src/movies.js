@@ -2031,25 +2031,20 @@ console.log (howManyMovies(movies));
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 
 function scoresAverage(moviesArray) {
-if (!moviesArray[0]){ //.length
-    return 0
-} 
-const average = moviesArray.reduce(function(acumulador,cValue){
-    if (cValue.score){
-       
-        let test = acumulador+cValue.score
-       
-        return test
-    } else {
-        return acumulador
+    if (!moviesArray[0]){
+        return 0
     }
-
-},0)
-let rate =Math.round (average/moviesArray.length *100 )/100
-return rate
-}
-
-console.log (scoresAverage(movies))
+    let average = moviesArray.reduce(function(acumulador,cValue){
+    if (cValue.score){
+        let test = acumulador+cValue.score
+               return test
+            } else {
+                return acumulador
+            }
+        },0)
+        return Math.round(average/moviesArray.length *100 )/100
+    }
+    console.log (scoresAverage(movies))
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
 
@@ -2086,7 +2081,7 @@ function orderAlphabetically(moviesArray) {
     let newArray = [...moviesArray];
     let titlesArray = []
     for (let i=0;i< moviesArray.length;i++){
-        titlesArray.push (newArray[i].title);
+        titlesArray.push(newArray[i].title);
     }
     let alphabeticOrder = titlesArray.sort()
     return alphabeticOrder.slice (0,20)
